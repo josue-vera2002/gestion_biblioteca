@@ -1,0 +1,39 @@
+<div class="container mt-4 p-4 border border-3">
+    <div class="d-flex justify-content-between mb-3">
+      <div class="btn-group">
+        <button (click)="openDialog(true)" type="button" class="btn btn-danger">Crear</button>
+      </div>
+    </div>
+    <div class="container">
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Serial</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Editorial</th>
+          <th>Fecha de Lanzamiento</th>
+          <th>ID del Autor</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let libro of libros">
+          <td>{{ libro.serial }}</td>
+          <td>{{ libro.nombre }}</td>
+          <td>{{ libro.tipo }}</td>
+          <td>{{ libro.editorial }}</td>
+          <td>{{ libro.fecha_lanzamiento }}</td>
+          <td>{{ libro.id_autor }}</td>
+          <td>
+            <div class="btn-group">
+              <button (click)="openDialog(false, libro)" class="btn btn-info">Actualizar</button>
+              <button (click)="eliminarLibro(libro.id)" class="btn btn-danger">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

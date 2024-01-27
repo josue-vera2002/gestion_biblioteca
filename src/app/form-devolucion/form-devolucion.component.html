@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <div *ngIf="!opcion">
+        <h1 class="text-center mb-4">Actualizar Devolución</h1>
+    </div>
+    <div *ngIf="opcion">
+        <h1 class="text-center mb-4">Crear Devolución</h1>
+    </div>
+
+    <form #form="ngForm" class="form-container">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Fecha Retorno</mat-label>
+                    <input matInput placeholder="Ej. 01/01/2022" [(ngModel)]="formData.fecha_retorno"
+                        name="fechaDevolucion" required>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>ID Prestamo</mat-label>
+                    <input matInput placeholder="Ej. 123" [(ngModel)]="formData.id_prestamo"
+                        name="idPrestamo" required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button (click)="onNoClick()" mat-raised-button color="primary" type="submit"
+                class="btn btn-lg btn-success m-1" mat-button>Cancelar</button>
+
+            <div *ngIf="!opcion" class="d-inline-block">
+                <!-- Botón: Actualizar (visible si no es opción) -->
+                <button mat-raised-button color="primary" type="submit" class="btn btn-lg btn-success m-1" mat-button
+                    (click)="actualizarDevolucionform(formData.id, formData)">Actualizar</button>
+            </div>
+
+            <div *ngIf="opcion" class="d-inline-block">
+                <!-- Botón: Crear (visible si es opción) -->
+                <button mat-raised-button color="primary" type="submit" (click)="crearDevolucionform(formData)"
+                    class="btn btn-lg btn-success m-1" mat-button>Crear</button>
+            </div>
+        </div>
+    </form>
+</div>

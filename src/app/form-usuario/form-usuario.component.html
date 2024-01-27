@@ -1,0 +1,94 @@
+<div class="container mt-4">
+  <div *ngIf="!opcion">
+    <h1 class="text-center mb-4">Actualizar Usuario</h1>
+  </div>
+  <div *ngIf="opcion">
+    <h1 class="text-center mb-4">Crear Usuario</h1>
+  </div>
+
+  <form #form="ngForm" class="form-container">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Tipo de Usuario</mat-label>
+          <input matInput placeholder="Ej. Hombre" [(ngModel)]="formData.tipo_usuario" name="tipoUsuario" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Cédula</mat-label>
+          <input matInput placeholder="Ej. 123456789" [(ngModel)]="formData.cedula" name="cedula" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Nombres</mat-label>
+          <input matInput placeholder="Ej. Juan" [(ngModel)]="formData.nombres" name="nombres" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Apellidos</mat-label>
+          <input matInput placeholder="Ej. Pérez" [(ngModel)]="formData.apellidos" name="apellidos" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Telefono</mat-label>
+          <input matInput placeholder="Ej. 0981992095" [(ngModel)]="formData.telefono" name="telefono" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Fecha de Nacimiento</mat-label>
+          <input matInput placeholder="Ej. 01/01/1990" [(ngModel)]="formData.fecha_nacimiento" name="fechaNacimiento"
+            required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput placeholder="Ej. ejemplo@dominio.com" [(ngModel)]="formData.correo" name="correo" required
+            email>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Dirección</mat-label>
+          <input matInput placeholder="Ej. Calle Principal 123" [(ngModel)]="formData.direccion" name="direccion"
+            required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button (click)="onNoClick()" mat-raised-button color="primary" type="submit" 
+      class="btn btn-lg btn-success m-1" mat-button>Cancelar</button>
+
+      <div *ngIf="!opcion" class="d-inline-block">
+        <!-- Botón: Actualizar (visible si no es opción) -->
+        <button mat-raised-button color="primary" type="submit" class="btn btn-lg btn-success m-1" mat-button
+          (click)="actualizarUsuarioform(formData.id, formData)">Actualizar</button>
+      </div>
+
+      <div *ngIf="opcion" class="d-inline-block">
+        <!-- Botón: Crear (visible si es opción) -->
+        <button mat-raised-button color="primary" type="submit" (click)="crearUsuarioform(formData)"
+          class="btn btn-lg btn-success m-1" mat-button>Crear</button>
+      </div>
+    </div>
+  </form>
+</div>

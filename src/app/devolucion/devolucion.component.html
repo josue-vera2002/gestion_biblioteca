@@ -1,0 +1,33 @@
+<div class="container mt-4 p-4 border border-3">
+    <div class="d-flex justify-content-between mb-3">
+      <div class="btn-group">
+        <button (click)="openDialog(true)" type="button" class="btn btn-danger">Crear</button>
+      </div>
+    </div>
+    <div class="container">
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Fecha Retorno</th>
+          <th>ID Prestamo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dev of devoluciones">
+          <td>{{ dev.id }}</td>
+          <td>{{ dev.fecha_retorno}}</td>
+          <td>{{ dev.id_prestamo }}</td>
+          <td>
+            <div class="btn-group">
+              <button mat-button class="btn btn-info" (click)="openDialog(false, dev)">Editar</button>
+              <button mat-button class="btn btn-danger" (click)="eliminarDevolucion(dev.id)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

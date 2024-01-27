@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDEBIt6D5AsjHj4I94vW4t8bF2F5jcJ7"
+    crossorigin="anonymous">
+  <style>
+    body {
+      padding-top: 56px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #f8f9fa;
+      text-align: center;
+      padding: 10px 0;
+      color: #6c757d;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">{{ title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link active" href="#" routerLink="/usuarios">Usuarios</a>
+        <a class="nav-item nav-link" href="#" routerLink="/libros">Libros</a>
+        <a class="nav-item nav-link" href="#" routerLink="/devoluciones">Devoluciones</a>
+        <a class="nav-item nav-link" href="#" routerLink="/prestamos">Prestamos</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <span>Todos los derechos reservados a Josue, Katy, Mony, Jhon</span>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-iKofPx72Kp4r8e1pee7uoL+B3T5gK6BFI9nEFA5ezrXEBqk/1TI6AZD8NHxv2cQ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDEBIt6D5AsjHj4I94vW4t8bF2F5jcJ7"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <div *ngIf="!opcion">
+    <h1 class="text-center mb-4">Actualizar Libro</h1>
+  </div>
+  <div *ngIf="opcion">
+    <h1 class="text-center mb-4">Crear Libro</h1>
+  </div>
+
+  <form #form="ngForm" class="form-container">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Serial del Libro</mat-label>
+          <input matInput placeholder="Ej. ABC123" [(ngModel)]="formData.serial" name="serial" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Nombre del Libro</mat-label>
+          <input matInput placeholder="Ej. El Señor de los Anillos" [(ngModel)]="formData.nombre" name="nombre" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Tipo de Libro</mat-label>
+          <input matInput placeholder="Ej. Novela" [(ngModel)]="formData.tipo" name="tipo" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Editorial del Libro</mat-label>
+          <input matInput placeholder="Ej. Ediciones Minotauro" [(ngModel)]="formData.editorial" name="editorial" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Fecha de Lanzamiento del Libro</mat-label>
+          <input matInput placeholder="Ej. 01/01/2000" [(ngModel)]="formData.fecha_lanzamiento" name="fechaLanzamiento" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>ID del Autor del Libro</mat-label>
+          <input matInput placeholder="Ej. 12345" [(ngModel)]="formData.id_autor" name="idAutor" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button (click)="onNoClick()" mat-raised-button color="primary" type="submit"
+        class="btn btn-lg btn-success m-1" mat-button>Cancelar</button>
+
+      <div *ngIf="!opcion" class="d-inline-block">
+        <!-- Botón: Actualizar (visible si no es opción) -->
+        <button mat-raised-button color="primary" type="submit" class="btn btn-lg btn-success m-1" mat-button
+          (click)="actualizarLibroForm(formData.id, formData)">Actualizar</button>
+      </div>
+
+      <div *ngIf="opcion" class="d-inline-block">
+        <!-- Botón: Crear (visible si es opción) -->
+        <button mat-raised-button color="primary" type="submit" (click)="crearLibroForm(formData)"
+          class="btn btn-lg btn-success m-1" mat-button>Crear</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,73 @@
+<div class="container mt-4">
+    <div *ngIf="!opcion">
+      <h1 class="text-center mb-4">Actualizar Préstamo</h1>
+    </div>
+    <div *ngIf="opcion">
+      <h1 class="text-center mb-4">Crear Préstamo</h1>
+    </div>
+  
+    <form #form="ngForm" class="form-container">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>ID del Préstamo</mat-label>
+            <input matInput placeholder="Ej. 1" [(ngModel)]="formData.id" name="id" required readonly>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Fecha Desde</mat-label>
+            <input matInput placeholder="Ej. 01/01/2024" [(ngModel)]="formData.fecha_desde" name="fecha_desde" required>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Fecha Hasta</mat-label>
+            <input matInput placeholder="Ej. 15/01/2024" [(ngModel)]="formData.fecha_hasta" name="fecha_hasta" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>ID del Socio</mat-label>
+            <input matInput placeholder="Ej. ABC123" [(ngModel)]="formData.id_socio" name="id_socio" required>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>ID del Libro</mat-label>
+            <input matInput placeholder="Ej. XYZ789" [(ngModel)]="formData.id_libro" name="id_libro" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Activo</mat-label>
+            <input matInput placeholder="Ej. Sí/No" [(ngModel)]="formData.activo" name="activo" required>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="text-center">
+        <button (click)="onNoClick()" mat-raised-button color="primary" type="submit" class="btn btn-lg btn-success m-1" mat-button>Cancelar</button>
+  
+        <div *ngIf="!opcion" class="d-inline-block">
+          <!-- Botón: Actualizar (visible si no es opción) -->
+          <button mat-raised-button color="primary" type="submit" class="btn btn-lg btn-success m-1" mat-button (click)="actualizarPrestamoform(formData.id, formData)">Actualizar</button>
+        </div>
+  
+        <div *ngIf="opcion" class="d-inline-block">
+          <!-- Botón: Crear (visible si es opción) -->
+          <button mat-raised-button color="primary" type="submit" (click)="crearPrestamoform(formData)" class="btn btn-lg btn-success m-1" mat-button>Crear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
